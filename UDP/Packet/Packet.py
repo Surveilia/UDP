@@ -5,20 +5,20 @@
 #   Project:        Surveilia
 
 #   How to use:     To use the packet object: 
-#                                                         chksum,  personFlag, personCount, humidity(%), Temperature, Accelerometer, Gyroscope      
-#                   Packet = packetClass.SurveiliaPacket( 10,      False,      0,           10,          20,          180,           90)
+#                                                    chksum,  personFlag, personCount, humidity(%), Temperature, Accelerometer, Gyroscope      
+#   Example:        Packet = Packet.SurveiliaPacket( 10,      0 or 1,     0,           10,          20,          180,           90)
 
-#   Example:        Packet = packetClass.SurveiliaPacket(10, 0, 0, 10, 20, 180, 90)
+#   Example:        Packet = Packet.SurveiliaPacket(10, 0, 0, 10, 20, 180, 90)
 
 #   Packet contains in order:
-                # - Check sum
-                # - personFlag
-                # - # of people
-                # - humidity
-                # - Temp
-                # - accelerometer
-                # - gyroscope
-                # - GPS (maybe)
+                # - Check sum     -  sum of values
+                # - personFlag    -  Either 1 or 0
+                # - # of people   -  Number of people in frame from OpenCV
+                # - humidity      -  Humidity detected on DHT11
+                # - Temp          -  Temperature detected by DHT11
+                # - accelerometer -  Accelerometer data from MPU6050
+                # - gyroscope     -  Gyroscope data from MPU6050
+                # - GPS (maybe)   -  Potential GPS data from F7
 
 class SurveiliaPacket:
     def __init__(self, chkSum, flag, count, humid, temp, acc, gyro):
