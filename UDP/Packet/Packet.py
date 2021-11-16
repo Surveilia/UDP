@@ -20,7 +20,6 @@
                 # - gyroscope
                 # - GPS (maybe)
 
-#file is either the jpg image or the chart
 class SurveiliaPacket:
     def __init__(self, chkSum, flag, count, humid, temp, acc, gyro):
         self.checkSum = chkSum
