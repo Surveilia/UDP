@@ -19,7 +19,7 @@
                 # - Temp
                 # - accelerometer
                 # - gyroscope
-                # - GPS (maybe)
+                # - GPS (maybe), not supported
 
 
 class SurveiliaPacket:
