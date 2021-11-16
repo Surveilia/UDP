@@ -33,31 +33,24 @@ class SurveiliaPacket:
         
     def setChkSum(self, chkSum):
         self.checkSum = chkSum
-        storePacket(self)
     
     def setFlag(self, flag):
         self.Flag = flag
-        storePacket()
         
     def setPersCt(self, count):
         self.PersonCount = count
-        storePacket()
         
     def setHumidity(self, humid):
         self.Humidity = humid
-        storePacket()
         
     def setTemp(self, temp):
-        self.Temperature = temp
-        storePacket()
-        
+        self.Temperature = temp     
+
     def setAccel(self, acc):
         self.Accelerometer = acc
-        storePacket()
         
     def setGyro(self, gyro):
         self.Gyroscope = gyro
-        storePacket()
         
     def storePacket(self):
 
