@@ -11,6 +11,8 @@
 #   In use:         Packet = packetClass.SurveiliaPacket()
 #                   Packet.updatePacket(fill values with packet content)
 
+#   Header:         import Packet
+
 #   Packet contains in order:
                 # - Check sum
                 # - personFlag
