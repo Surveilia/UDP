@@ -4,24 +4,38 @@
 
 #   Project:        Surveilia
 
-#   How to use:     To use the packet object: 
-#                                                    chksum,  personFlag, personCount, humidity(%), Temperature, Accelerometer, Gyroscope      
-#   Example:        Packet = Packet.SurveiliaPacket( 10,      0 or 1,     0,           10,          20,          180,           90)
+#   How to use:     To use the packet object, example data: 
+#                                                         chksum,  personFlag,  personCount, humidity(%), Temperature, Accelerometer, Gyroscope      
+#                   Packet = packetClass.SurveiliaPacket( 10,      0 or 1,      0,           10,          20,          180,           90)
 
-#   Example:        Packet = Packet.SurveiliaPacket(10, 0, 0, 10, 20, 180, 90)
+#   In use:         Packet = packetClass.SurveiliaPacket()
+#                   Packet.updatePacket(fill values with packet content)
 
 #   Packet contains in order:
-                # - Check sum     -  sum of values
-                # - personFlag    -  Either 1 or 0
-                # - # of people   -  Number of people in frame from OpenCV
-                # - humidity      -  Humidity detected on DHT11
-                # - Temp          -  Temperature detected by DHT11
-                # - accelerometer -  Accelerometer data from MPU6050
-                # - gyroscope     -  Gyroscope data from MPU6050
-                # - GPS (maybe)   -  Potential GPS data from F7
+                # - Check sum
+                # - personFlag
+                # - # of people
+                # - humidity
+                # - Temp
+                # - accelerometer
+                # - gyroscope
+                # - GPS (maybe)
+
 
 class SurveiliaPacket:
-    def __init__(self, chkSum, flag, count, humid, temp, acc, gyro):
+    
+    #initializes packet. -1 represents absense of data
+    def __init__(self):
+        self.checkSum = -1
+        self.Flag = -1
+        self.PersonCount = -1
+        self.Humidity = -1
+        self.Temperature = -1
+        self.Accelerometer = -1
+        self.Gyroscope = -1
+        
+        # Updates packet with values
+    def updatePacket(self, chkSum, flag, count, humid, temp, acc, gyro):
         self.checkSum = chkSum
         self.Flag = flag
         self.PersonCount = count
@@ -29,38 +43,18 @@ class SurveiliaPacket:
         self.Temperature = temp
         self.Accelerometer = acc
         self.Gyroscope = gyro
+        storePacket(self)
         
-    def setChkSum(self, chkSum):
-        self.checkSum = chkSum
-    
-    def setFlag(self, flag):
-        self.Flag = flag
-        
-    def setPersCt(self, count):
-        self.PersonCount = count
-        
-    def setHumidity(self, humid):
-        self.Humidity = humid
-        
-    def setTemp(self, temp):
-        self.Temperature = temp     
-
-    def setAccel(self, acc):
-        self.Accelerometer = acc
-        
-    def setGyro(self, gyro):
-        self.Gyroscope = gyro
-        
-    def storePacket(self):
-
-        with open('Packet.txt', 'w') as Packet:
-            Packet.write(str(self.checkSum) + '\n')
-            Packet.write(str(self.Flag) + '\n')
-            Packet.write(str(self.PersonCount) + '\n')
-            Packet.write(str(self.Humidity) + '\n')
-            Packet.write(str(self.Temperature) + '\n')
-            Packet.write(str(self.Accelerometer) + '\n' )
-            Packet.write(str(self.Gyroscope) + '\n')
+# Stores current packet on every update
+def storePacket(self):
+    with open('Packet.txt', 'w') as Packet:
+        Packet.write(str(self.checkSum) + '\n')
+        Packet.write(str(self.Flag) + '\n')
+        Packet.write(str(self.PersonCount) + '\n')
+        Packet.write(str(self.Humidity) + '\n')
+        Packet.write(str(self.Temperature) + '\n')
+        Packet.write(str(self.Accelerometer) + '\n' )
+        Packet.write(str(self.Gyroscope) + '\n')
         
                 # ::::Packet Structure::::
                 # - Check sum
