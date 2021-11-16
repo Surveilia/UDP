@@ -1,4 +1,4 @@
-import packetClass
+import Packet
 # Packet contains in order:
                 # - Check sum
                 # - personFlag
@@ -7,4 +7,6 @@ import packetClass
                 # - Temp
                 # - accelerometer
                 # - gyroscope
-T1 = packetClass.SurveiliaPacket(10, False, 0, 10, 20, 180, 90)
+T1 = Packet.SurveiliaPacket(10, 0, 0, 10, 20, 180, 90)
+
+T1.storePacket()
