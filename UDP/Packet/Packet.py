@@ -1,7 +1,3 @@
-import json
-import time
-import random
-
 #   Written by:     Chase Westlake
 
 #   Description:    This class contructs the packet contents to send in UDP
