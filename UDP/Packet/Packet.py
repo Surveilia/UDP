@@ -8,7 +8,7 @@
 #                                                         chksum,  personFlag, personCount, humidity(%), Temperature, Accelerometer, Gyroscope      
 #                   Packet = packetClass.SurveiliaPacket( 10,      False,      0,           10,          20,          180,           90)
 
-#   In use:         Packet = packetClass.SurveiliaPacket(10, 0, 0, 10, 20, 180, 90)
+#   Example:        Packet = packetClass.SurveiliaPacket(10, 0, 0, 10, 20, 180, 90)
 
 #   Packet contains in order:
                 # - Check sum
